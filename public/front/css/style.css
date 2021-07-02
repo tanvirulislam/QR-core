@@ -1,0 +1,18 @@
+.custom-icon{
+    font-size: 31px;
+    transition: .3s;
+    padding: 10px 10px;
+
+}
+
+.custom-icon:hover{
+    transition: .3s;
+    color: white;
+    background: black;
+    padding: 10px 10px;
+    border-radius: 50%;
+}
+
+.icon-div{
+    height: 100px;
+}
