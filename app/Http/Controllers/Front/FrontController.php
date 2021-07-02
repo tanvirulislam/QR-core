@@ -62,8 +62,8 @@ class FrontController extends Controller
             Toastr::success('Successully Added :)' ,'Success');
             return redirect()->route('index');
         } else{
-            Toastr::success('Successully Added :)' ,'Success');
-			return redirect()->route('user_login')->with('Login error', 'Login first');
+            Toastr::info('Login First ' ,'Info');
+			return redirect()->route('user_login');
         }
 
 
@@ -103,7 +103,7 @@ class FrontController extends Controller
             return redirect()->route('index');
         } else{
 
-            Toastr::success('Successully Added :)' ,'Success');
+            Toastr::info('Login First ' ,'Info');
 			return redirect()->route('user_login')->with('Login error', 'Login first');
 		}
 
@@ -148,7 +148,7 @@ class FrontController extends Controller
         return redirect()->route('index');
     }else{
 
-        Toastr::success('Successully Added :)' ,'Success');
+        Toastr::info('Login First ' ,'Info');
         return redirect()->route('user_login')->with('Login error', 'Login first');
 
     }

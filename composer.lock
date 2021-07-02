@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "069ed0c9604c31d991d64424ee95dd80",
+    "content-hash": "d4c494eeac971cd97c254f33fb878edb",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -169,16 +169,16 @@
         },
         {
             "name": "brian2694/laravel-toastr",
-            "version": "5.53",
+            "version": "5.56",
             "source": {
                 "type": "git",
                 "url": "https://github.com/brian2694/laravel-toastr.git",
-                "reference": "8822a4888cfa4625c90aa9b3928fa117514796a7"
+                "reference": "98137445f55d981f3587800349f1aa7b045d7974"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brian2694/laravel-toastr/zipball/8822a4888cfa4625c90aa9b3928fa117514796a7",
-                "reference": "8822a4888cfa4625c90aa9b3928fa117514796a7",
+                "url": "https://api.github.com/repos/brian2694/laravel-toastr/zipball/98137445f55d981f3587800349f1aa7b045d7974",
+                "reference": "98137445f55d981f3587800349f1aa7b045d7974",
                 "shasum": ""
             },
             "require": {
@@ -215,7 +215,7 @@
                     "email": "briansanchez2694@gmail.com"
                 }
             ],
-            "description": "toastr.js for laravel 5.5",
+            "description": "toastr.js for Laravel",
             "homepage": "https://github.com/brian2694/laravel-toastr",
             "keywords": [
                 "laravel",
@@ -223,7 +223,11 @@
                 "php",
                 "toastr"
             ],
-            "time": "2020-03-30T16:11:10+00:00"
+            "support": {
+                "issues": "https://github.com/brian2694/laravel-toastr/issues",
+                "source": "https://github.com/brian2694/laravel-toastr/tree/5.56"
+            },
+            "time": "2021-05-12T19:27:46+00:00"
         },
         {
             "name": "brick/math",

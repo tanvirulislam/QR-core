@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '5283529be6433e3ac1a424b86f2a2933ef4e18fc',
+    'reference' => 'df5ac5d4be6952eec3da7f681d2430711be11e12',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -40,12 +40,12 @@
     ),
     'brian2694/laravel-toastr' => 
     array (
-      'pretty_version' => '5.53',
-      'version' => '5.53.0.0',
+      'pretty_version' => '5.56',
+      'version' => '5.56.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '8822a4888cfa4625c90aa9b3928fa117514796a7',
+      'reference' => '98137445f55d981f3587800349f1aa7b045d7974',
     ),
     'brick/math' => 
     array (
@@ -476,7 +476,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '5283529be6433e3ac1a424b86f2a2933ef4e18fc',
+      'reference' => 'df5ac5d4be6952eec3da7f681d2430711be11e12',
     ),
     'laravel/socialite' => 
     array (
