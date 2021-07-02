@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My Ecommerce | Log in</title>
+  <title>QR Code | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,7 +21,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-     <img src="{{ asset('/') }}public/admin/dist/img/logo5.png" alt="AdminLTE Logo" >
+     <!-- <img src="{{ asset('/') }}public/admin/dist/img/logo5.png" alt="AdminLTE Logo" > -->
   </div>
   <!-- /.login-logo -->
   <div class="card">

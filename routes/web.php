@@ -51,6 +51,28 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
     Route::put('profile-update/{id}','SettingController@updateProfile')->name('profile.update');
     Route::put('password-update','SettingController@updatePassword')->name('password.update');
 
+    Route::get('qr_type','DashboardController@type')->name('qr_type');
+    Route::get('download','DashboardController@download')->name('download');
+
+    Route::get('download/link/{id}','DashboardController@download_link')->name('download_link');
+    Route::post('/link/destroy/{id}','DashboardController@link_destroy')->name('link_destroy');
+    
+    Route::get('download/image/{id}','DashboardController@download_image')->name('download_image');
+    Route::post('/image/destroy/{id}','DashboardController@image_destroy')->name('image.destroy');
+
+    Route::get('download/pdf/{id}','DashboardController@download_pdf')->name('download_pdf');
+    Route::post('/pdf/destroy/{id}','DashboardController@pdf_destroy')->name('pdf_destroy');
+
+
+	Route::get('link','DashboardController@link')->name('link');
+	Route::get('image','DashboardController@image')->name('image');
+	Route::get('pdf','DashboardController@pdf')->name('pdf');
+
+
+
+
+
+
 	 });
 
 Route::group(['as'=>'user.','prefix'=>'user','namespace'=>'User','middleware'=>['auth','user']], function (){

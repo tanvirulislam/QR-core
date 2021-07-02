@@ -169,6 +169,8 @@ return [
          Brian2694\Toastr\ToastrServiceProvider::class,
          Barryvdh\DomPDF\ServiceProvider::class,
          Laravel\Socialite\SocialiteServiceProvider::class,
+         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -233,6 +235,8 @@ return [
         'Toastr'  => Brian2694\Toastr\Facades\Toastr::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+
 
     ],
 
