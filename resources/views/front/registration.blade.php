@@ -10,7 +10,7 @@ QR Code Generator
 
         <div class="col-md-3"></div>
 
-        <div class="col-md-6" style="box-shadow: 0px 0px 5px #0cc1cb; padding: 24px 26px;">
+        <div class="col-md-6" style="box-shadow: 0px 0px 5px #0cc1cb; padding: 24px 26px;background: ghostwhite;">
             <center>
                 <h3>Registration Form</h3>
             </center>
@@ -56,4 +56,5 @@ QR Code Generator
 
     </div>
 </div>
+<br>
 @endsection

@@ -14,13 +14,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">About us</a>
             </li>
-
+            @if (Auth::guest())
             <li class="nav-item">
                 <a class="nav-link" href="{{route('user_login')}}">Sign In</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('registration')}}">Signup</a>
             </li>
+            @else
             <li class="nav-item">
                 <a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Logout</a>
@@ -28,6 +29,7 @@
                     @csrf
                 </form>
             </li>
+            @endif
         </ul>
 
     </div>

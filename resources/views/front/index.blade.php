@@ -7,6 +7,7 @@ QR Code Generator
 <div class="container">
     <br>
     <center><h3>Create your QR Code for free</h3></center>
+    <!-- <marquee behavior="scroll" direction="left"><h3>Create your QR Code for free</h3></marquee> -->
     <hr>
     <br>
     <div class="row ">
