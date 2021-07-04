@@ -15,7 +15,7 @@ use Brian2694\Toastr\Facades\Toastr;
 class FrontController extends Controller
 {
     public function index(){
-        return view('front.index');
+        return view('front.index2');
     }
 
     public function showLoginForm()
@@ -112,46 +112,46 @@ class FrontController extends Controller
     // PDF------------
 
     public function pdf_store(Request $request){
-    if(Auth::check()){
-        $file1= new Pdf();
-        $file1->user_id= Auth::user()->id;;
+        if(Auth::check()){
 
-        if ($request->hasFile('imageFile')){
-            $uploadedImage = $request->file('imageFile');
-            $imageName = time() . '.' . $uploadedImage->getClientOriginalExtension();
-            $uploadedImage->move('public/upload/', $imageName);
-            $file1->pdf_file = 'public/upload/' . $imageName;
+            $file1= new Pdf();
+            $file1->user_id= Auth::user()->id;;
+
+            if ($request->hasFile('imageFile')){
+                $uploadedImage = $request->file('imageFile');
+                $imageName = time() . '.' . $uploadedImage->getClientOriginalExtension();
+                $uploadedImage->move('public/upload/', $imageName);
+                $file1->pdf_file = 'public/upload/' . $imageName;
+            }
+            //  dd($file1);
+                
+            $file1->save(); 
+            // dd('ok');
+            $linkId = $file1->id;
+            $link =asset('download/link/web/single/image/'.$linkId);
+            // dd($link);
+            $main = QrCode::size(150)
+
+                    ->format('svg')
+
+                    ->generate($link, public_path('pdf/qrcode.svg'));
+
+                    $time = time();
+
+
+            File::copy(public_path('pdf/qrcode.svg'),public_path('upload/'.$time.'.svg'));
+
+            $imageLocation ='public/upload/'.$time.'.svg';
+
+            $result_av_Gift = Pdf::where('id',$linkId)->update(['qr_image'=>$imageLocation]);
+
+            Toastr::success('Successully Added :)' ,'Success');
+            return redirect()->route('index');
+        }else{
+
+            Toastr::info('Login First ' ,'Info');
+            return redirect()->route('user_login')->with('Login error', 'Login first');
         }
-        //  dd($file1);
-            
-        $file1->save(); 
-        // dd('ok');
-        $linkId = $file1->id;
-        $link =asset('download/link/web/single/image/'.$linkId);
-        // dd($link);
-        $main = QrCode::size(150)
-
-                ->format('svg')
-
-                ->generate($link, public_path('pdf/qrcode.svg'));
-
-                $time = time();
-
-
-        File::copy(public_path('pdf/qrcode.svg'),public_path('upload/'.$time.'.svg'));
-
-        $imageLocation ='public/upload/'.$time.'.svg';
-
-        $result_av_Gift = Pdf::where('id',$linkId)->update(['qr_image'=>$imageLocation]);
-
-        Toastr::success('Successully Added :)' ,'Success');
-        return redirect()->route('index');
-    }else{
-
-        Toastr::info('Login First ' ,'Info');
-        return redirect()->route('user_login')->with('Login error', 'Login first');
-
-    }
 
 
     }
