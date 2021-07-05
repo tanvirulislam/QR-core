@@ -21,7 +21,8 @@ QR Code Generator
                     @csrf
                 <div class="form-group">
                 <label for="formGroupExampleInput2">Website link</label>
-                <input type="text" name="link" class="form-control" id="formGroupExampleInput2" placeholder="Website link">
+                <input type="text" name="link" class="form-control" id="formGroupExampleInput2" placeholder="Website link"
+                required>
                 </div>
                 <button type="submit" class="btn btn-info">Submit</button>
             </form>
@@ -37,7 +38,8 @@ QR Code Generator
                     @csrf
                 <div class="form-group">
                 <label for="formGroupExampleInput2">Image</label>
-                <input type="file" name="imageFile" class="form-control" id="formGroupExampleInput2" placeholder="Image">
+                <input type="file" name="imageFile" class="form-control" id="formGroupExampleInput2" 
+                placeholder="Image" required>
                 </div>
                 <button type="submit" class="btn btn-info">Submit</button>
             </form>
@@ -55,7 +57,8 @@ QR Code Generator
                     @csrf
                 <div class="form-group">
                 <label for="formGroupExampleInput2">PDF</label>
-                <input type="file" name="imageFile" class="form-control" id="formGroupExampleInput2" placeholder="Website link">
+                <input type="file" name="imageFile" class="form-control" id="formGroupExampleInput2" 
+                placeholder="Website link" required>
                 </div>
                 <button type="submit" class="btn btn-info">Submit</button>
             </form>
