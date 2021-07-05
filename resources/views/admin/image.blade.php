@@ -50,9 +50,10 @@ Image | QR CODE
                                 <tr>
                                     <th>Id</th>
                                     <th>Name</th>
-                                    
+
                                     <th>Image</th>
-                                    <th>QR Code</th>
+                                    <th>QR Code(svg)</th>
+                                    <th>QR Code(eps)</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -72,19 +73,28 @@ Image | QR CODE
 
                                         <img src="{{asset('/')}}{{$category->qr_image}}" width="70px" height="70px">
                                         <br><br>
-                                        <a href="{{route('admin.download_image',$category->id)}}" class="btn bg-olive">Download</a>
+                                        <a href="{{route('admin.download_image',$category->id)}}"
+                                            class="btn bg-olive">Download</a>
+                                    </td>
+                                    <td>
+                                    <img src="{!!$category->qr_image_png!!}>
+                                    
+                                        <img src="{{asset('/')}}{{$category->qr_image_png}}" width="70px" height="70px">
+                                        <br><br>
+                                        <a href="{{route('admin.download_image_eps',$category->id)}}"
+                                            class="btn bg-olive">Download</a>
                                     </td>
 
                                     <td><button type="button" class="btn btn-danger text-light"
                                             onclick="deleteTag({{ $category->id }})"><i
                                                 class="fas fa-trash-alt"></i></button>
                                         <form id="delete-form-{{ $category->id }}"
-                                            action="{{ route('admin.image.destroy',$category->id) }}"
-                                            method="POST" style="display: none;">
+                                            action="{{ route('admin.image.destroy',$category->id) }}" method="POST"
+                                            style="display: none;">
                                             @csrf
 
                                         </form>
-                                       
+
                                     </td>
                                 </tr>
                                 @endforeach
@@ -93,9 +103,11 @@ Image | QR CODE
                                 <tr>
                                     <th>Id</th>
                                     <th>Name</th>
-                                    <th>Link</th>
                                     <th>Image</th>
-                                    <th>QR Code</th>
+                                    <th>QR Code(svg)</th>
+                                    <th>QR Code(eps)</th>
+                                    <th>Action</th>
+
                                 </tr>
                             </tfoot>
                         </table>

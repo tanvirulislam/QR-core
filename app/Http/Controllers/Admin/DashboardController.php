@@ -61,6 +61,15 @@ class DashboardController extends Controller
     
     }
 
+    public function download_image_eps($id){
+
+        $mailfile = Photo::where('id',$id)->value('qr_image_png');
+    
+        //$file_path = public_path('images/qrcode.svg');
+        return response()->download($mailfile);
+    
+    }
+
     public function image_destroy($id)
     {
         Photo::find($id)->delete();

@@ -167,6 +167,7 @@ trait AuthenticatesUsers
 
         $request->session()->regenerateToken();
 
+        
         if ($response = $this->loggedOut($request)) {
             return $response;
         }

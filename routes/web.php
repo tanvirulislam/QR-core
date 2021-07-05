@@ -22,14 +22,11 @@ Route::get('/', 'Front\FrontController@index')->name('index');
 Route::get('/user-login', 'Front\FrontController@showLoginForm')->name('user_login');
 Route::get('user-registration/', 'Front\FrontController@registration')->name('registration');
 
-// Route::post('/user-login-store', 'Front\FrontController@user_login_store')->name('user_login_store');
-// Route::post('user-registration/store', 'Front\FrontController@registration_store')->name('registration_store');
-
-// Route::post('/user-logout/submit', 'Front\FrontController@logout')->name('user_logout_submit');
-
 Route::post('/pdfFile/store','Front\FrontController@pdf_store')->name('pdf_store');
 Route::post('/image/store','Front\FrontController@image_store')->name('image_store');
 Route::post('/link/store','Front\FrontController@link_store')->name('link_store');
+
+Route::get('download/link/web/single/image/{id}','Front\FrontController@image')->name('image.detail');
 
 Auth::routes();
 
@@ -49,6 +46,8 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
     Route::post('/link/destroy/{id}','DashboardController@link_destroy')->name('link_destroy');
     
     Route::get('download/image/{id}','DashboardController@download_image')->name('download_image');
+    // Route::get('web/image/{id}','DashboardController@image_web_link')->name('image_web_link');
+    Route::get('download/image/eps/{id}','DashboardController@download_image_eps')->name('download_image_eps');
     Route::post('/image/destroy/{id}','DashboardController@image_destroy')->name('image.destroy');
 
     Route::get('download/pdf/{id}','DashboardController@download_pdf')->name('download_pdf');
