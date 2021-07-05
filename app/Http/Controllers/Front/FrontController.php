@@ -163,8 +163,24 @@ class FrontController extends Controller
 
             Toastr::success('Successully Added :)' ,'Success');
              return view('front.index');
-       
 
+    }
+
+    public function pdf($id){
+           
+        $menu = Pdf::where('id',$id)->first();
+   
+        return view('front.web_pdf_view',['menu'=>$menu]);
+   
+    }
+
+    public function download($id){
+
+        $mailfile = Pdf::where('id',$id)->value('pdf_file');
+
+        // $file_path =('public/upload/'.$mailfile);
+
+        return response()->download($mailfile);
 
     }
 

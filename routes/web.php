@@ -28,6 +28,12 @@ Route::post('/link/store','Front\FrontController@link_store')->name('link_store'
 
 Route::get('download/link/web/single/image/{id}','Front\FrontController@image')->name('image.detail');
 
+Route::get('download/link/web/single/pdf/{id}','Front\FrontController@pdf')->name('pdf.detail');
+// Route::get('download/link/web/single/file/{id}','MainController@file')->name('pdf.detail');
+
+Route::get('download/file/{id}','Front\FrontController@download')->name('download');
+// Route::get('download/file/{id}','MainController@download')->name('download');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -46,7 +52,6 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
     Route::post('/link/destroy/{id}','DashboardController@link_destroy')->name('link_destroy');
     
     Route::get('download/image/{id}','DashboardController@download_image')->name('download_image');
-    // Route::get('web/image/{id}','DashboardController@image_web_link')->name('image_web_link');
     Route::get('download/image/eps/{id}','DashboardController@download_image_eps')->name('download_image_eps');
     Route::post('/image/destroy/{id}','DashboardController@image_destroy')->name('image.destroy');
 
