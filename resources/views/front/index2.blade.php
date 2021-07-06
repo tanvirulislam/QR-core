@@ -6,14 +6,26 @@ QR Code Generator
 @section('body')
 <div class="container">
     <br>
+
     @if(Auth::guest())
-    <center><a href="{{route('user_login')}}" class="btn btn-primary">Log In</a></center>
-    <!-- <marquee behavior="scroll" direction="left"><h3>Create your QR Code for free</h3></marquee> -->
+    <div class="row">
+        <div class="col-md-4"> </div>
+
+        <div class="col-md-2">
+
+            <a href="{{route('user_login')}}" class=" btn btn-primary">Log In</a>
+            <a class=" btn btn-primary" href="{{route('registration')}}">Signup</a>
+
+        </div>
+
+        <div class="col-md-4"></div>
+    </div>
+
     @else
     <center><a href="{{route('user.dashboard')}}" class="btn btn-primary">Log In</a></center>
-     @endif
+    @endif
     <hr>
     <br>
-   
+
 </div>
 @endsection

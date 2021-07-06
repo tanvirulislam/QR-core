@@ -26,9 +26,9 @@
             <li class="nav-item">
                 <!-- <a class="nav-link" href="{{route('user_login')}}">Sign In</a> -->
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="{{route('registration')}}">Signup</a>
-            </li>
+            </li> -->
             @else
             <li class="nav-item">
                 <a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault();
