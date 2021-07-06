@@ -63,7 +63,7 @@ class DashboardController extends Controller
 
     public function download_image_eps($id){
 
-        $mailfile = Photo::where('id',$id)->value('qr_image_png');
+        $mailfile = Photo::where('id',$id)->value('qr_image_eps');
     
         //$file_path = public_path('images/qrcode.svg');
         return response()->download($mailfile);
@@ -87,6 +87,14 @@ class DashboardController extends Controller
     public function download_pdf($id){
 
         $mailfile = Pdf::where('id',$id)->value('qr_image');
+    
+        return response()->download($mailfile);
+    
+    }
+
+    public function download_pdf_eps($id){
+
+        $mailfile = Pdf::where('id',$id)->value('qr_image_eps');
     
         return response()->download($mailfile);
     

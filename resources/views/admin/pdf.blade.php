@@ -62,30 +62,33 @@ PDF | QR CODE
                                     <td>
                                         {{ $category->user_info->name }}
                                     </td>
-                                    <!-- <td>
-
-                                        <img src="{{asset('/')}}{{$category->pdf_file}}" width="70px" height="70px">
-                                        <br><br>
-                                        <a href="{{route('admin.download_pdf',$category->id)}}" class="btn bg-olive">Download</a>
-                                    </td> -->
 
                                     <td>
 
                                         <img src="{{asset('/')}}{{$category->qr_image}}" width="70px" height="70px">
                                         <br><br>
-                                        <a href="{{route('admin.download_pdf',$category->id)}}" class="btn bg-olive">Download</a>
+                                        <a href="{{route('admin.download_pdf',$category->id)}}"
+                                            class="btn bg-olive">Download</a>
+                                    </td>
+
+                                    <td>
+
+                                        <img src="{{asset('/')}}{{$category->qr_image_eps}}" width="70px" height="70px">
+                                        <br><br>
+                                        <a href="{{route('admin.download_pdf_eps',$category->id)}}"
+                                            class="btn bg-olive">Download</a>
                                     </td>
 
                                     <td><button type="button" class="btn btn-danger text-light"
                                             onclick="deleteTag({{ $category->id }})"><i
                                                 class="fas fa-trash-alt"></i></button>
                                         <form id="delete-form-{{ $category->id }}"
-                                            action="{{ route('admin.pdf_destroy',$category->id) }}"
-                                            method="POST" style="display: none;">
+                                            action="{{ route('admin.pdf_destroy',$category->id) }}" method="POST"
+                                            style="display: none;">
                                             @csrf
 
                                         </form>
-                                       
+
                                     </td>
                                 </tr>
                                 @endforeach

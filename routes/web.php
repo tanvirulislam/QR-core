@@ -29,10 +29,7 @@ Route::post('/link/store','Front\FrontController@link_store')->name('link_store'
 Route::get('download/link/web/single/image/{id}','Front\FrontController@image')->name('image.detail');
 
 Route::get('download/link/web/single/pdf/{id}','Front\FrontController@pdf')->name('pdf.detail');
-// Route::get('download/link/web/single/file/{id}','MainController@file')->name('pdf.detail');
-
 Route::get('download/file/{id}','Front\FrontController@download')->name('download');
-// Route::get('download/file/{id}','MainController@download')->name('download');
 
 Auth::routes();
 
@@ -56,6 +53,7 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
     Route::post('/image/destroy/{id}','DashboardController@image_destroy')->name('image.destroy');
 
     Route::get('download/pdf/{id}','DashboardController@download_pdf')->name('download_pdf');
+    Route::get('download/pdf/eps/{id}','DashboardController@download_pdf_eps')->name('download_pdf_eps');
     Route::post('/pdf/destroy/{id}','DashboardController@pdf_destroy')->name('pdf_destroy');
 
 

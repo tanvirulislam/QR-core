@@ -63,7 +63,7 @@ class FrontController extends Controller
                     ->generate($link, public_path('images/qrcode.eps'));
                     $time = time();
 
-            File::copy(public_path('images/qrcode.eps'),public_path('vcard/'.$time.'.png'));
+            File::copy(public_path('images/qrcode.eps'),public_path('vcard/'.$time.'.eps'));
 
             $imageLocation ='public/vcard/'.$time.'.eps';
 
@@ -105,24 +105,12 @@ class FrontController extends Controller
             File::copy(public_path('link/svg/qrcode.svg'),public_path('link/svg/'.$time.'.svg'));
             // dd('ok');
             $imageLocation ='public/link/svg/'.$time.'.svg';
-            
-            // png---------------
-            $main = QrCode::size(150)
-            ->margin(10)
-            ->format('png')
-            ->generate($link, public_path('link/png/qrcode.png'));
-            $time = time();
-            // dd($time);
-
-            File::copy(public_path('link/png/qrcode.png'),public_path('link/png/'.$time.'.png'));
-            // dd('ok');
-            $imageLocation ='public/link/png/'.$time.'.png';
 
             $linkCode = New Link();
             $linkCode->user_id = Auth::user()->id;
             $linkCode->link = $link;
             $linkCode->qr_image = $imageLocation;
-            $linkCode->qr_image_png = $imageLocation;
+            $linkCode->qr_image_eps = $imageLocation;
             $linkCode->save();
             //dd($imageLocation);
             Toastr::success('Successully Added :)' ,'Success');
@@ -160,12 +148,21 @@ class FrontController extends Controller
 
                     $time = time();
 
-
             File::copy(public_path('pdf/qrcode.svg'),public_path('upload/'.$time.'.svg'));
-
             $imageLocation ='public/upload/'.$time.'.svg';
-
             $result_av_Gift = Pdf::where('id',$linkId)->update(['qr_image'=>$imageLocation]);
+
+            // eps--------
+            $main = QrCode::size(150)
+            ->margin(10)
+            ->format('eps')
+            ->generate($link, public_path('pdf/qrcode.eps'));
+            $time = time();
+
+            File::copy(public_path('pdf/qrcode.eps'),public_path('upload/'.$time.'.eps'));
+            $imageLocation ='public/upload/'.$time.'.eps';
+            $result_av_Gift = Pdf::where('id',$linkId)->update(['qr_image_eps'=>$imageLocation]);
+
 
             Toastr::success('Successully Added :)' ,'Success');
              return view('front.index');

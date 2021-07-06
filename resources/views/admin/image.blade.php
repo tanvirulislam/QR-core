@@ -77,9 +77,9 @@ Image | QR CODE
                                             class="btn bg-olive">Download</a>
                                     </td>
                                     <td>
-                                    <img src="{!!$category->qr_image_png!!}>
+                                    <!-- <img src="{!!$category->qr_image_png!!}> -->
                                     
-                                        <img src="{{asset('/')}}{{$category->qr_image_png}}" width="70px" height="70px">
+                                        <img src="{{asset('/')}}{{$category->qr_image_eps}}" width="70px" height="70px">
                                         <br><br>
                                         <a href="{{route('admin.download_image_eps',$category->id)}}"
                                             class="btn bg-olive">Download</a>
