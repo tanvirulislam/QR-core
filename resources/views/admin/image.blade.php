@@ -53,7 +53,7 @@ Image | QR CODE
 
                                     <th>Image</th>
                                     <th>QR Code(svg)</th>
-                                    <th>QR Code(eps)</th>
+                                    <th>(eps)</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -105,7 +105,7 @@ Image | QR CODE
                                     <th>Name</th>
                                     <th>Image</th>
                                     <th>QR Code(svg)</th>
-                                    <th>QR Code(eps)</th>
+                                    <th>(eps)</th>
                                     <th>Action</th>
 
                                 </tr>

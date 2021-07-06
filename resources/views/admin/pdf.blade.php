@@ -50,8 +50,8 @@ PDF | QR CODE
                                 <tr>
                                     <th>Id</th>
                                     <th>Name</th>
-                                    <!-- <th>PDF</th> -->
-                                    <th>QR Code</th>
+                                    <th>QR Code(svg)</th>
+                                    <th>eps</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -97,8 +97,8 @@ PDF | QR CODE
                                 <tr>
                                     <th>Id</th>
                                     <th>Name</th>
-                                    <!-- <th>Link</th> -->
-                                    <th>QR Code</th>
+                                    <th>QR Code(svg)</th>
+                                    <th>eps</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
