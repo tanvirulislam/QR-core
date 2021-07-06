@@ -9,6 +9,7 @@ use App\Pdf;
 use App\Photo;
 use App\Link;
 use File;
+use Imagick;
 use Illuminate\Support\Facades\Auth;
 use Brian2694\Toastr\Facades\Toastr;
 
@@ -55,21 +56,18 @@ class FrontController extends Controller
             $imageLocation ='public/vcard/'.$time.'.svg';
 
             $result_av_Gift = Photo::where('id',$linkId)->update(['qr_image'=>$imageLocation]);
+            // eps----------
+            $main = QrCode::size(150)
+                    ->margin(10)
+                    ->format('eps')
+                    ->generate($link, public_path('images/qrcode.eps'));
+                    $time = time();
 
-            // $main = QrCode::size(150)
+            File::copy(public_path('images/qrcode.eps'),public_path('vcard/'.$time.'.png'));
 
-            //         ->format('eps')
+            $imageLocation ='public/vcard/'.$time.'.eps';
 
-            //         ->generate($link, public_path('images/qrcode.eps'));
-
-            //         $time = time();
-
-
-            // File::copy(public_path('images/qrcode.eps'),public_path('vcard/'.$time.'.eps'));
-
-            // $imageLocation ='public/vcard/'.$time.'.eps';
-
-            // $result_av_Gift = Photo::where('id',$linkId)->update(['qr_image_png'=>$imageLocation]);
+            $result_av_Gift = Photo::where('id',$linkId)->update(['qr_image_eps'=>$imageLocation]);
 
             Toastr::success('Successully Added :)' ,'Success');
             return view('front.index');
@@ -96,27 +94,35 @@ class FrontController extends Controller
 
       
             $link = $request->input('link');
-
             // dd($link);
-
             $main = QrCode::size(150)
-
+                ->margin(10)
                 ->format('svg')
-
-                ->generate($link, public_path('link/upload/qrcode.svg'));
-
+                ->generate($link, public_path('link/svg/qrcode.svg'));
                 $time = time();
-
                 // dd($time);
 
-            File::copy(public_path('link/upload/qrcode.svg'),public_path('link/upload/'.$time.'.svg'));
+            File::copy(public_path('link/svg/qrcode.svg'),public_path('link/svg/'.$time.'.svg'));
             // dd('ok');
-            $imageLocation ='public/link/upload/'.$time.'.svg';
+            $imageLocation ='public/link/svg/'.$time.'.svg';
+            
+            // png---------------
+            $main = QrCode::size(150)
+            ->margin(10)
+            ->format('png')
+            ->generate($link, public_path('link/png/qrcode.png'));
+            $time = time();
+            // dd($time);
+
+            File::copy(public_path('link/png/qrcode.png'),public_path('link/png/'.$time.'.png'));
+            // dd('ok');
+            $imageLocation ='public/link/png/'.$time.'.png';
 
             $linkCode = New Link();
             $linkCode->user_id = Auth::user()->id;
             $linkCode->link = $link;
-            $linkCode->qr_image = $imageLocation; 
+            $linkCode->qr_image = $imageLocation;
+            $linkCode->qr_image_png = $imageLocation;
             $linkCode->save();
             //dd($imageLocation);
             Toastr::success('Successully Added :)' ,'Success');
@@ -147,7 +153,7 @@ class FrontController extends Controller
             $link =asset('public/upload/'.$linkId);
             // dd($link);
             $main = QrCode::size(150)
-
+                    ->margin(10)
                     ->format('svg')
 
                     ->generate($link, public_path('pdf/qrcode.svg'));
