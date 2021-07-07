@@ -1,7 +1,7 @@
 @extends('admin.master.master')
 
 @section('title')
-Dashboard | QR Code
+রিপোর্ট/সার্টিফিকেট(ডাউনলোড)
 @endsection
 
 

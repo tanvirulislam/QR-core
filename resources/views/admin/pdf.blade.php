@@ -50,8 +50,9 @@ PDF | QR CODE
                                 <tr>
                                     <th>Id</th>
                                     <th>Name</th>
+                                    
                                     <th>QR Code(svg)</th>
-                                    <th>eps</th>
+                                    <th>eps</th> 
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -67,11 +68,10 @@ PDF | QR CODE
 
                                         <img src="{{asset('/')}}{{$category->qr_image}}" width="70px" height="70px">
                                         <br><br>
-                                        <a href="{{route('admin.download_pdf',$category->id)}}"
-                                            class="btn bg-olive">Download</a>
+                                        <a href="{{route('admin.download_pdf',$category->id)}}" class="btn bg-olive">Download</a>
                                     </td>
-
-                                    <td>
+                                    
+                                     <td>
 
                                         <img src="{{asset('/')}}{{$category->qr_image_eps}}" width="70px" height="70px">
                                         <br><br>
@@ -83,12 +83,12 @@ PDF | QR CODE
                                             onclick="deleteTag({{ $category->id }})"><i
                                                 class="fas fa-trash-alt"></i></button>
                                         <form id="delete-form-{{ $category->id }}"
-                                            action="{{ route('admin.pdf_destroy',$category->id) }}" method="POST"
-                                            style="display: none;">
+                                            action="{{ route('admin.pdf_destroy',$category->id) }}"
+                                            method="POST" style="display: none;">
                                             @csrf
 
                                         </form>
-
+                                       
                                     </td>
                                 </tr>
                                 @endforeach
@@ -97,8 +97,8 @@ PDF | QR CODE
                                 <tr>
                                     <th>Id</th>
                                     <th>Name</th>
-                                    <th>QR Code(svg)</th>
-                                    <th>eps</th>
+                                   <th>QR Code(svg)</th>
+                                    <th>eps</th> 
                                     <th>Action</th>
                                 </tr>
                             </tfoot>

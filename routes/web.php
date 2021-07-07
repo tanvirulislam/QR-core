@@ -22,14 +22,15 @@ Route::get('/', 'Front\FrontController@index')->name('index');
 Route::get('/user-login', 'Front\FrontController@showLoginForm')->name('user_login');
 Route::get('user-registration/', 'Front\FrontController@registration')->name('registration');
 
-Route::post('/pdfFile/store','Front\FrontController@pdf_store')->name('pdf_store');
-Route::post('/image/store','Front\FrontController@image_store')->name('image_store');
-Route::post('/link/store','Front\FrontController@link_store')->name('link_store');
+// Route::post('/pdfFile/store','Front\FrontController@pdf_store')->name('pdf_store');
+// Route::post('/image/store','Front\FrontController@image_store')->name('image_store');
+// Route::post('/link/store','Front\FrontController@link_store')->name('link_store');
 
 Route::get('download/link/web/single/image/{id}','Front\FrontController@image')->name('image.detail');
 
 Route::get('download/link/web/single/pdf/{id}','Front\FrontController@pdf')->name('pdf.detail');
 Route::get('download/file/{id}','Front\FrontController@download')->name('download');
+
 
 Auth::routes();
 
@@ -49,6 +50,7 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
     Route::post('/link/destroy/{id}','DashboardController@link_destroy')->name('link_destroy');
     
     Route::get('download/image/{id}','DashboardController@download_image')->name('download_image');
+    // Route::get('web/image/{id}','DashboardController@image_web_link')->name('image_web_link');
     Route::get('download/image/eps/{id}','DashboardController@download_image_eps')->name('download_image_eps');
     Route::post('/image/destroy/{id}','DashboardController@image_destroy')->name('image.destroy');
 
@@ -56,12 +58,15 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
     Route::get('download/pdf/eps/{id}','DashboardController@download_pdf_eps')->name('download_pdf_eps');
     Route::post('/pdf/destroy/{id}','DashboardController@pdf_destroy')->name('pdf_destroy');
 
-
+	Route::get('create-qr','DashboardController@create_qr')->name('create_qr');
 	Route::get('link','DashboardController@link')->name('link');
 	Route::get('image','DashboardController@image')->name('image');
 	Route::get('pdf','DashboardController@pdf')->name('pdf');
 
-
+    Route::post('/pdfFile/store','DashboardController@pdf_store')->name('pdf_store');
+    Route::post('/image/store','DashboardController@image_store')->name('image_store');
+    Route::post('/link/store','DashboardController@link_store')->name('link_store');
+    
 
 
 

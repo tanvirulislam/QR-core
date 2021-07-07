@@ -1,6 +1,6 @@
 @extends('front.master.master')
 @section('title')
-QR Code Generator
+Registration
 @endsection
 
 @section('body')

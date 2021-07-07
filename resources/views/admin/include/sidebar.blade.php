@@ -32,6 +32,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.create_qr') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>Generate QR Code</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.link') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>Link QR Code</p>

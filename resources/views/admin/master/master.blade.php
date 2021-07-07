@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{asset('/')}}public/admin/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('/')}}public/admin/plugins/summernote/summernote-bs4.css">
+    <link rel="stylesheet" href="{{asset('/')}}public/admin/dist/css/style.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- DataTables -->

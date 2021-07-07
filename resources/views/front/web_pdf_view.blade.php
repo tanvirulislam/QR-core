@@ -19,6 +19,7 @@
 <body style="background-color:#009B74;">
     <section>
 
+       
         <div class="col-md-12 mt-5">
             <a href="{{ route('download',$menu->id) }}" type="button" class="btn btn-primary">Download Pdf
             </a>

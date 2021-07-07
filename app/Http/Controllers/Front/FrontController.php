@@ -9,7 +9,6 @@ use App\Pdf;
 use App\Photo;
 use App\Link;
 use File;
-use Imagick;
 use Illuminate\Support\Facades\Auth;
 use Brian2694\Toastr\Facades\Toastr;
 
@@ -56,12 +55,15 @@ class FrontController extends Controller
             $imageLocation ='public/vcard/'.$time.'.svg';
 
             $result_av_Gift = Photo::where('id',$linkId)->update(['qr_image'=>$imageLocation]);
-            // eps----------
+
             $main = QrCode::size(150)
-                    ->margin(10)
+
                     ->format('eps')
+
                     ->generate($link, public_path('images/qrcode.eps'));
+
                     $time = time();
+
 
             File::copy(public_path('images/qrcode.eps'),public_path('vcard/'.$time.'.eps'));
 
@@ -70,7 +72,7 @@ class FrontController extends Controller
             $result_av_Gift = Photo::where('id',$linkId)->update(['qr_image_eps'=>$imageLocation]);
 
             Toastr::success('Successully Added :)' ,'Success');
-            return view('front.index');
+            return redirect()->back();
       
 
 
@@ -80,13 +82,13 @@ class FrontController extends Controller
     
     public function image($id){
 
-        $photo = Photo::where('id',$id)->first();   
-        // dd($photo);
-   
+        $photo = Photo::where('id',$id)->latest()->first();
+        //   dd($photo);
+
         return view('front.web_image_view', compact('photo'));
    
    
-       }
+    }
 
 
     
@@ -94,27 +96,31 @@ class FrontController extends Controller
 
       
             $link = $request->input('link');
+
             // dd($link);
+
             $main = QrCode::size(150)
-                ->margin(10)
+
                 ->format('svg')
-                ->generate($link, public_path('link/svg/qrcode.svg'));
+
+                ->generate($link, public_path('link/upload/qrcode.svg'));
+
                 $time = time();
+
                 // dd($time);
 
-            File::copy(public_path('link/svg/qrcode.svg'),public_path('link/svg/'.$time.'.svg'));
+            File::copy(public_path('link/upload/qrcode.svg'),public_path('link/upload/'.$time.'.svg'));
             // dd('ok');
-            $imageLocation ='public/link/svg/'.$time.'.svg';
+            $imageLocation ='public/link/upload/'.$time.'.svg';
 
             $linkCode = New Link();
             $linkCode->user_id = Auth::user()->id;
             $linkCode->link = $link;
-            $linkCode->qr_image = $imageLocation;
-            $linkCode->qr_image_eps = $imageLocation;
+            $linkCode->qr_image = $imageLocation; 
             $linkCode->save();
             //dd($imageLocation);
             Toastr::success('Successully Added :)' ,'Success');
-            return view('front.index');
+            return redirect()->back();
        
 
     }
@@ -138,21 +144,18 @@ class FrontController extends Controller
             $file1->save(); 
             // dd('ok');
             $linkId = $file1->id;
-            $link =asset('public/upload/'.$linkId);
+            $link =asset('download/link/web/single/pdf/'.$linkId);
             // dd($link);
             $main = QrCode::size(150)
                     ->margin(10)
                     ->format('svg')
-
                     ->generate($link, public_path('pdf/qrcode.svg'));
-
                     $time = time();
 
             File::copy(public_path('pdf/qrcode.svg'),public_path('upload/'.$time.'.svg'));
             $imageLocation ='public/upload/'.$time.'.svg';
             $result_av_Gift = Pdf::where('id',$linkId)->update(['qr_image'=>$imageLocation]);
-
-            // eps--------
+            
             $main = QrCode::size(150)
             ->margin(10)
             ->format('eps')
@@ -162,14 +165,14 @@ class FrontController extends Controller
             File::copy(public_path('pdf/qrcode.eps'),public_path('upload/'.$time.'.eps'));
             $imageLocation ='public/upload/'.$time.'.eps';
             $result_av_Gift = Pdf::where('id',$linkId)->update(['qr_image_eps'=>$imageLocation]);
-
-
+            
             Toastr::success('Successully Added :)' ,'Success');
-             return view('front.index');
+             return redirect()->back();
+
 
     }
-
-    public function pdf($id){
+    
+      public function pdf($id){
            
         $menu = Pdf::where('id',$id)->first();
    
@@ -181,7 +184,7 @@ class FrontController extends Controller
 
         $mailfile = Pdf::where('id',$id)->value('pdf_file');
 
-        // $file_path =('public/upload/'.$mailfile);
+        // $file_path ='public/upload/'.$mailfile;
 
         return response()->download($mailfile);
 
