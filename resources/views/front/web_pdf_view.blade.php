@@ -21,8 +21,12 @@
 
        
         <div class="col-md-12 mt-5">
-            <a href="{{ route('download',$menu->id) }}" type="button" class="btn btn-primary">Download Pdf
-            </a>
+            <!-- <a href="{{ route('download',$menu->id) }}" type="button" class="btn btn-primary">Download Pdf
+            </a> -->
+
+            <embed src="{{ asset('/') }}{{ $menu->pdf_file }}" style="width:400px; height:400px;" frameborder="0">
+
+            <!-- <iframe height="300" width="300" src="{{asset('/')}}{{$menu->pdf_file}}" frameborder="0"></iframe> -->
         </div>
 
     </section>

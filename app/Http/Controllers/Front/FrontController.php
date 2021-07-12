@@ -11,6 +11,7 @@ use App\Link;
 use File;
 use Illuminate\Support\Facades\Auth;
 use Brian2694\Toastr\Facades\Toastr;
+use DOMPDF;
 
 class FrontController extends Controller
 {
